@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 v-if='issingle'>你就是条单身狗</h1>
+        <h1 v-else>有女朋友真幸福</h1>
+        </br>
+
+        <h1>{{age}}</h1>
+        <!-- 注意判断的顺序问题 -->
+        <h1 v-if='age >=60'>你在桥上跳广场舞</h1>
+        <h1 v-else-if='age >=40'>右白虎</h1>
+        <h1 v-else-if='age >=20'>左青龙</h1>
+        <h1 v-else>好好学习天天向上</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#container',
+            data: {
+                name: 'zs',
+                hair: 'long',
+                issingle: true,
+                age: 22,
+                money: {
+                    car: '大奔',
+                    house: '别墅',
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

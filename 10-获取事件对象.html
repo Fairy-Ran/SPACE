@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--vue中获取事件对象 
+        1.注册事件没有传参 @事件名='fn',直接通过形参，即可获取
+        2.注册事件传参了  @事件名='fn(参数，@event)' ,需要通过@event获取e
+
+        注意:能使用const的地方都尽量用const
+
+     -->
+    <div id="box">
+        <a @click='fn1' href="http://www.baidu.com">百度的链接</a>
+        <a @click="fn2('xiaoming',$event)" href="http://www.baidu.com">打印出小明的名字</a>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                word: 'hello Vue'
+            },
+            methods: {
+                fn1(e) {
+                    e.preventDefault()
+                },
+                fn2(name, e) {
+                    e.preventDefault()
+                    alert(name);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

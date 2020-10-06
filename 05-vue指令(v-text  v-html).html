@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- vue指令：就是一些特殊的html标签的属性 特点：v-开头 -->
+    <!-- vue在看到v-开头的属性时，都会当成指令解析，并且提供指令对应的功能，每个指令都有自己独立的功能 -->
+
+    <!-- 
+    v-html => 类似于html() 设置元素的 innerHTML 识别标签  在需要解析标签的时候使用
+    v-text => 类似于text() 设置元素的 innerText 不识别标签(没有必要 完全可以被插值表达式替代)-->
+    <div id="box">
+        <h6 v-text='sentence'></h6>
+        <h5 v-html='sentence'></h5>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                word: 'hello Vue',
+                number: 20,
+                sentence: '<h1>这是一句话</h1>'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

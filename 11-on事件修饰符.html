@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 需求：阻止a标签的默认跳转
+        事件修饰符
+    .stop 阻止冒泡
+    .prevent 阻止默认行为
+-->
+    <div id="box">
+        <a @click="fn1('20',$event)" href="http://www.baidu.com">我是$event不跳转</a>
+        <div @click="fatherFn">
+            <a @click.prevent.stop="fn2('300')" href="http://www.baidu.com">我是传参不跳转</a>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                word: 'hello Vue'
+            },
+            methods: {
+                fn1(num, e) {
+                    e.preventDefault()
+                },
+                fn2(num) {
+                    alert(num)
+                },
+                fatherFn() {
+                    alert('我是爸爸')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

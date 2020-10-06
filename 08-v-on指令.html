@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-on 用于注册事件
+        1.内联语句，将要执行的代码，直接写在“”里面，好处：简洁简单适用于特别简单的代码
+            v-on:事件名='要执行的代码'
+        2.指定成methods中的函数
+            v-on:事件名='methods中的函数'
+        3.指定成methods中的函数，并且传参
+            v-on:事件名='methods中的函数(参数1，参数2，...)'
+        简写:v-on 可以简写,  @
+            v-on:事件名 => @事件名
+    -->
+    <div id="box">
+        <!-- <button v-on:click='isshow=!isshow'>控制显示与隐藏</button>
+        <button v-on:click='fn1'>指定成函数控制显示与隐藏</button>
+        <button v-on:click="fn2(50)">指定成methods中的函数，传参</button> -->
+
+        <button @click='isshow=!isshow'>控制显示隐藏</button>
+        <button @click='fn1'>methods中的函数</button>
+        <button @mouseenter='fn2(3000)'>methods中的函数2</button>
+        <button @click='fn3'>methods中的函数3</button>
+        <h1 v-show='isshow'>我是显示出来的内容</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                isshow: true,
+            },
+            methods: {
+                fn1() {
+                    this.isshow = !this.isshow
+                },
+                fn2(num) {
+                    console.log('fn2');
+                    console.log(num);
+                },
+                fn3() {
+                    alert('发生了')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

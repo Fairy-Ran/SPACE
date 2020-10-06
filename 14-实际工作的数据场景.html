@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 如果是列表的渲染(使用v-for时)，vue推荐加上 key 属性，可以优化列表的渲染性能(原理在拓展视频)    语法：    :key="唯一标识"(一般这个标识是id)(如果遍历的是简单的数据可以不加)  -->
+
+    <div id="box">
+        <ul>
+            <li v-for="item in students" :key="item.id">姓名：{{item.name}},　　年龄：{{item.age}},　　特征:{{item.desc}}</li>
+        </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                students: [{
+                    id: 1,
+                    name: '小红1',
+                    age: 20,
+                    desc: '很好学'
+                }, {
+                    id: 2,
+                    name: '小红2',
+                    age: 21,
+                    desc: '很好学'
+                }, {
+                    id: 3,
+                    name: '小红3',
+                    age: 22,
+                    desc: '很好学'
+                }, {
+                    id: 4,
+                    name: '小明4',
+                    age: 23,
+                    desc: '很爱玩'
+                }, {
+                    id: 5,
+                    name: '小红5',
+                    age: 24,
+                    desc: '很好学'
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

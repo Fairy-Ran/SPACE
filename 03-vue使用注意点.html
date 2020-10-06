@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- vue注意点：
+    1.Vue的构造函数，首字母大写
+    2.el不能被指定成body或者html
+    3.记住！！！！！！！：数据驱动！！！！要更新视图，要操作数据  vm.XXX=值
+-->
+    <div id="container">
+        <div id="header">
+            <h1>{{word}}</h1>
+        </div>
+        <div id="footer">
+            <h2>{{number}}</h2>
+        </div>
+    </div>
+
+</body>
+<script src="./vue.js"></script>
+<script>
+    //vue实例化的过程中，将data中的所有数据都会添加到vm实例上
+    const vm = new Vue({
+        el: "#container",
+        data: {
+            word: 'hello Vue',
+            number: 100,
+            color: 'red',
+            size: 'big'
+        }
+    })
+    console.log(vm.color);
+    console.log(vm.size);
+</script>
+
+</html>

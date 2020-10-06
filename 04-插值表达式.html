@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 差值表达式：{{}} 小胡子语法
+        作用：使用data中的数据渲染视图
+
+        语法：
+        {{word}}
+        {{obj.name}}
+        {{}}
+        支持三元运算符
+
+    注意点：
+        1.不是data中的变量，不能直接引用
+        2.在差值表达式{{}}中不能使用js语句  (比如if for等    要用v-if v-for)
+        3.不能在html标签属性中使用差值表达式  (用v-bind)
+    -->
+    <div id="box">
+        <h1>{{word}}</h1>
+        <span>{{say}}</span>
+        <h2>{{number}}</h2>
+        <h3>{{obj.name}}</h3>
+        <h3>{{obj.age}}</h3>
+        <!-- 也可以调用方法 -->
+        <h4>{{color.toUpperCase()}}</h4>
+        <h5>{{word.toUpperCase()}}</h5>
+        <!-- 可以使用三元表达式 -->
+        <h6>{{obj.age>=20?'打游戏':'好好学习'}}</h6>
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                word: 'hello Vue',
+                say: 'hi',
+                number: 200,
+                color: 'red',
+                obj: {
+                    name: 'zs',
+                    age: 18,
+                    gender: 'man'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
